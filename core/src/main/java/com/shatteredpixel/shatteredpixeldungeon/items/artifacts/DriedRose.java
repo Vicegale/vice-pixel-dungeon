@@ -699,7 +699,7 @@ public class DriedRose extends Artifact {
 		}
 
 		@Override
-		public boolean isImmune(Class effect) {
+		public boolean isImmune(Class<?> effect) {
 			if (effect == Burning.class
 					&& rose != null
 					&& rose.armor != null

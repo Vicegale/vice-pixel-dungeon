@@ -62,7 +62,7 @@ public class SandalsOfNature extends Artifact {
 	public static final String AC_FEED = "FEED";
 	public static final String AC_ROOT = "ROOT";
 
-	public ArrayList<Class> seeds = new ArrayList<>();
+	public ArrayList<Class<?>> seeds = new ArrayList<>();
 
 	@Override
 	public ArrayList<String> actions( Hero hero ) {

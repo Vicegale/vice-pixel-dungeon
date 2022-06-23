@@ -73,7 +73,7 @@ public class StoneOfIntuition extends InventoryStone {
 
 	public static class IntuitionUseTracker extends Buff {{ revivePersists = true; }};
 	
-	private static Class curGuess = null;
+	private static Class<?> curGuess = null;
 	
 	public class WndGuess extends Window {
 		

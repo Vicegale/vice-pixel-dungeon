@@ -169,7 +169,7 @@ public class Pylon extends Mob {
 	}
 
 	@Override
-	public boolean isInvulnerable(Class effect) {
+	public boolean isInvulnerable(Class<?> effect) {
 		//immune to damage when inactive
 		return (alignment == Alignment.NEUTRAL);
 	}

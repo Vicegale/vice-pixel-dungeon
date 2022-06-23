@@ -121,7 +121,7 @@ public class Bundle {
 		return data.optString( key );
 	}
 
-	public Class getClass( String key ) {
+	public Class<?> getClass( String key ) {
 		String clName =  getString(key).replace("class ", "");
 		if (!clName.equals("")){
 			if (aliases.containsKey( clName )) {
@@ -235,17 +235,17 @@ public class Bundle {
 		}
 	}
 
-	public Class[] getClassArray( String key ) {
+	public Class<?>[] getClassArray( String key ) {
 		try {
 			JSONArray array = data.getJSONArray( key );
 			int length = array.length();
-			Class[] result = new Class[length];
+			Class<?>[] result = new Class[length];
 			for (int i=0; i < length; i++) {
 				String clName = array.getString( i ).replace("class ", "");
 				if (aliases.containsKey( clName )) {
 					clName = aliases.get( clName );
 				}
-				Class cl = Reflection.forName( clName );
+				Class<?> cl = Reflection.forName( clName );
 				result[i] = cl;
 			}
 			return result;
@@ -331,7 +331,7 @@ public class Bundle {
 		}
 	}
 
-	public void put( String key, Class value ){
+	public void put( String key, Class<?> value ){
 		try {
 			data.put( key, value );
 		} catch (JSONException e) {
@@ -418,7 +418,7 @@ public class Bundle {
 		}
 	}
 
-	public void put( String key, Class[] array ){
+	public void put( String key, Class<?>[] array ){
 		try {
 			JSONArray jsonArray = new JSONArray();
 			for (int i=0; i < array.length; i++) {
@@ -436,7 +436,7 @@ public class Bundle {
 			//Skip none-static inner classes as they can't be instantiated through bundle restoring
 			//Classes which make use of none-static inner classes must manage instantiation manually
 			if (object != null) {
-				Class cl = object.getClass();
+				Class<?> cl = object.getClass();
 				if ((!Reflection.isMemberClass(cl) || Reflection.isStatic(cl))) {
 					Bundle bundle = new Bundle();
 					bundle.put(CLASS_NAME, cl.getName());

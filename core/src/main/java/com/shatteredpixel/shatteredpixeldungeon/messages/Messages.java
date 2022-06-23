@@ -98,7 +98,7 @@ public class Messages {
 		return get(o.getClass(), k, args);
 	}
 
-	public static String get(Class c, String k, Object...args){
+	public static String get(Class<?> c, String k, Object...args){
 		String key;
 		if (c != null){
 			key = c.getName().replace("com.shatteredpixel.shatteredpixeldungeon.", "");

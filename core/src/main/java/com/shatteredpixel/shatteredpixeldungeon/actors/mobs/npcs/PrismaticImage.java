@@ -235,7 +235,7 @@ public class PrismaticImage extends NPC {
 	}
 	
 	@Override
-	public boolean isImmune(Class effect) {
+	public boolean isImmune(Class<?> effect) {
 		if (effect == Burning.class
 				&& hero != null
 				&& hero.belongings.armor() != null

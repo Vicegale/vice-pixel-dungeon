@@ -687,13 +687,13 @@ public class Dungeon {
 		Statistics.preview( info, bundle );
 	}
 	
-	public static void fail( Class cause ) {
+	public static void fail( Class<?> cause ) {
 		if (WndResurrect.instance == null) {
 			Rankings.INSTANCE.submit( false, cause );
 		}
 	}
 	
-	public static void win( Class cause ) {
+	public static void win( Class<?> cause ) {
 
 		hero.belongings.identify();
 

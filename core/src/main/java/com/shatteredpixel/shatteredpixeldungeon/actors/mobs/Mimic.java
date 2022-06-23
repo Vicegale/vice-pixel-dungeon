@@ -255,7 +255,7 @@ public class Mimic extends Mob {
 		return spawnAt( pos, Arrays.asList(item), Mimic.class);
 	}
 
-	public static Mimic spawnAt( int pos, Item item, Class mimicType ){
+	public static Mimic spawnAt( int pos, Item item, Class<?> mimicType ){
 		return spawnAt( pos, Arrays.asList(item), mimicType);
 	}
 
@@ -263,7 +263,7 @@ public class Mimic extends Mob {
 		return spawnAt( pos, items, Mimic.class);
 	}
 
-	public static Mimic spawnAt( int pos, List<Item> items, Class mimicType ) {
+	public static Mimic spawnAt( int pos, List<Item> items, Class<?> mimicType ) {
 
 		Mimic m;
 		if (mimicType == GoldenMimic.class){

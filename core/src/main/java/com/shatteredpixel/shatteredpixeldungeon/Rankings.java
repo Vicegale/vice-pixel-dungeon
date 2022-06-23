@@ -58,7 +58,7 @@ public enum Rankings {
 	public int totalNumber;
 	public int wonNumber;
 
-	public void submit( boolean win, Class cause ) {
+	public void submit( boolean win, Class<?> cause ) {
 
 		load();
 		
@@ -259,7 +259,7 @@ public enum Rankings {
 		private static final String DATA	= "gameData";
 		private static final String ID      = "gameID";
 
-		public Class cause;
+		public Class<?> cause;
 		public boolean win;
 
 		public HeroClass heroClass;

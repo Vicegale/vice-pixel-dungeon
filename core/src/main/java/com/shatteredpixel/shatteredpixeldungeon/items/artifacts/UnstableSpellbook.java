@@ -74,7 +74,7 @@ public class UnstableSpellbook extends Artifact {
 	public static final String AC_READ = "READ";
 	public static final String AC_ADD = "ADD";
 
-	private final ArrayList<Class> scrolls = new ArrayList<>();
+	private final ArrayList<Class<?>> scrolls = new ArrayList<>();
 
 	public UnstableSpellbook() {
 		super();

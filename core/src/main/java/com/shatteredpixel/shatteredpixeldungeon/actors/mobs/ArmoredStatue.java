@@ -80,7 +80,7 @@ public class ArmoredStatue extends Statue {
 	}
 
 	@Override
-	public boolean isImmune(Class effect) {
+	public boolean isImmune(Class<?> effect) {
 		if (effect == Burning.class
 				&& armor != null
 				&& armor.hasGlyph(Brimstone.class, this)){

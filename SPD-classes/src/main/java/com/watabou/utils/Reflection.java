@@ -27,11 +27,11 @@ import com.watabou.noosa.Game;
 //wrapper for libGDX reflection
 public class Reflection {
 	
-	public static boolean isMemberClass( Class cls ){
+	public static boolean isMemberClass( Class<?> cls ){
 		return ClassReflection.isMemberClass(cls);
 	}
 	
-	public static boolean isStatic( Class cls ){
+	public static boolean isStatic( Class<?> cls ){
 		return ClassReflection.isStaticClass(cls);
 	}
 	
@@ -48,7 +48,7 @@ public class Reflection {
 		return ClassReflection.newInstance(cls);
 	}
 	
-	public static Class forName( String name ){
+	public static Class<?> forName( String name ){
 		try {
 			return ClassReflection.forName( name );
 		} catch (Exception e) {
@@ -57,7 +57,7 @@ public class Reflection {
 		}
 	}
 	
-	public static Class forNameUnhandled( String name ) throws Exception {
+	public static Class<?> forNameUnhandled( String name ) throws Exception {
 		return ClassReflection.forName( name );
 	}
 	

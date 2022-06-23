@@ -42,7 +42,7 @@ public class PotionOfPurity extends Potion {
 	
 	private static final int DISTANCE	= 3;
 	
-	private static ArrayList<Class> affectedBlobs;
+	private static ArrayList<Class<?>> affectedBlobs;
 
 	{
 		icon = ItemSpriteSheet.Icons.POTION_PURITY;
@@ -56,7 +56,7 @@ public class PotionOfPurity extends Potion {
 		PathFinder.buildDistanceMap( cell, BArray.not( Dungeon.level.solid, null ), DISTANCE );
 		
 		ArrayList<Blob> blobs = new ArrayList<>();
-		for (Class c : affectedBlobs){
+		for (Class<?> c : affectedBlobs){
 			Blob b = Dungeon.level.blobs.get(c);
 			if (b != null && b.volume > 0){
 				blobs.add(b);

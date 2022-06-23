@@ -837,12 +837,12 @@ public abstract class Char extends Actor {
 		next();
 	}
 	
-	protected final HashSet<Class> resistances = new HashSet<>();
+	protected final HashSet<Class<?>> resistances = new HashSet<>();
 	
 	//returns percent effectiveness after resistances
 	//TODO currently resistances reduce effectiveness by a static 50%, and do not stack.
-	public float resist( Class effect ){
-		HashSet<Class> resists = new HashSet<>(resistances);
+	public float resist( Class<?> effect ){
+		HashSet<Class<?>> resists = new HashSet<>(resistances);
 		for (Property p : properties()){
 			resists.addAll(p.resistances());
 		}
@@ -851,7 +851,7 @@ public abstract class Char extends Actor {
 		}
 		
 		float result = 1f;
-		for (Class c : resists){
+		for (Class<?> c : resists){
 			if (c.isAssignableFrom(effect)){
 				result *= 0.5f;
 			}
@@ -859,10 +859,10 @@ public abstract class Char extends Actor {
 		return result * RingOfElements.resist(this, effect);
 	}
 	
-	protected final HashSet<Class> immunities = new HashSet<>();
+	protected final HashSet<Class<?>> immunities = new HashSet<>();
 	
-	public boolean isImmune(Class effect ){
-		HashSet<Class> immunes = new HashSet<>(immunities);
+	public boolean isImmune(Class<?> effect ){
+		HashSet<Class<?>> immunes = new HashSet<>(immunities);
 		for (Property p : properties()){
 			immunes.addAll(p.immunities());
 		}
@@ -870,7 +870,7 @@ public abstract class Char extends Actor {
 			immunes.addAll(b.immunities());
 		}
 		
-		for (Class c : immunes){
+		for (Class<?> c : immunes){
 			if (c.isAssignableFrom(effect)){
 				return true;
 			}
@@ -880,7 +880,7 @@ public abstract class Char extends Actor {
 
 	//similar to isImmune, but only factors in damage.
 	//Is used in AI decision-making
-	public boolean isInvulnerable( Class effect ){
+	public boolean isInvulnerable( Class<?> effect ){
 		return false;
 	}
 
@@ -896,42 +896,42 @@ public abstract class Char extends Actor {
 	}
 
 	public enum Property{
-		BOSS ( new HashSet<Class>( Arrays.asList(Grim.class, GrimTrap.class, ScrollOfRetribution.class, ScrollOfPsionicBlast.class)),
-				new HashSet<Class>( Arrays.asList(AllyBuff.class, Dread.class) )),
-		MINIBOSS ( new HashSet<Class>(),
-				new HashSet<Class>( Arrays.asList(AllyBuff.class, Dread.class) )),
+		BOSS ( new HashSet<Class<?>>( Arrays.asList(Grim.class, GrimTrap.class, ScrollOfRetribution.class, ScrollOfPsionicBlast.class)),
+				new HashSet<Class<?>>( Arrays.asList(AllyBuff.class, Dread.class) )),
+		MINIBOSS ( new HashSet<Class<?>>(),
+				new HashSet<Class<?>>( Arrays.asList(AllyBuff.class, Dread.class) )),
 		UNDEAD,
 		DEMONIC,
-		INORGANIC ( new HashSet<Class>(),
-				new HashSet<Class>( Arrays.asList(Bleeding.class, ToxicGas.class, Poison.class) )),
-		FIERY ( new HashSet<Class>( Arrays.asList(WandOfFireblast.class, Elemental.FireElemental.class)),
-				new HashSet<Class>( Arrays.asList(Burning.class, Blazing.class))),
-		ICY ( new HashSet<Class>( Arrays.asList(WandOfFrost.class, Elemental.FrostElemental.class)),
-				new HashSet<Class>( Arrays.asList(Frost.class, Chill.class))),
-		ACIDIC ( new HashSet<Class>( Arrays.asList(Corrosion.class)),
-				new HashSet<Class>( Arrays.asList(Ooze.class))),
-		ELECTRIC ( new HashSet<Class>( Arrays.asList(WandOfLightning.class, Shocking.class, Potential.class, Electricity.class, ShockingDart.class, Elemental.ShockElemental.class )),
-				new HashSet<Class>()),
+		INORGANIC ( new HashSet<Class<?>>(),
+				new HashSet<Class<?>>( Arrays.asList(Bleeding.class, ToxicGas.class, Poison.class) )),
+		FIERY ( new HashSet<Class<?>>( Arrays.asList(WandOfFireblast.class, Elemental.FireElemental.class)),
+				new HashSet<Class<?>>( Arrays.asList(Burning.class, Blazing.class))),
+		ICY ( new HashSet<Class<?>>( Arrays.asList(WandOfFrost.class, Elemental.FrostElemental.class)),
+				new HashSet<Class<?>>( Arrays.asList(Frost.class, Chill.class))),
+		ACIDIC ( new HashSet<Class<?>>( Arrays.asList(Corrosion.class)),
+				new HashSet<Class<?>>( Arrays.asList(Ooze.class))),
+		ELECTRIC ( new HashSet<Class<?>>( Arrays.asList(WandOfLightning.class, Shocking.class, Potential.class, Electricity.class, ShockingDart.class, Elemental.ShockElemental.class )),
+				new HashSet<Class<?>>()),
 		LARGE,
 		IMMOVABLE;
 		
-		private HashSet<Class> resistances;
-		private HashSet<Class> immunities;
+		private HashSet<Class<?>> resistances;
+		private HashSet<Class<?>> immunities;
 		
 		Property(){
-			this(new HashSet<Class>(), new HashSet<Class>());
+			this(new HashSet<Class<?>>(), new HashSet<Class<?>>());
 		}
 		
-		Property( HashSet<Class> resistances, HashSet<Class> immunities){
+		Property( HashSet<Class<?>> resistances, HashSet<Class<?>> immunities){
 			this.resistances = resistances;
 			this.immunities = immunities;
 		}
 		
-		public HashSet<Class> resistances(){
+		public HashSet<Class<?>> resistances(){
 			return new HashSet<>(resistances);
 		}
 		
-		public HashSet<Class> immunities(){
+		public HashSet<Class<?>> immunities(){
 			return new HashSet<>(immunities);
 		}
 

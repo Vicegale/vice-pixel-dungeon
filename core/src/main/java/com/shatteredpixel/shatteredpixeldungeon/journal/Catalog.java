@@ -293,7 +293,7 @@ public enum Catalog {
 		
 		Badges.loadGlobal();
 		
-		ArrayList<Class> seen = new ArrayList<>();
+		ArrayList<Class<?>> seen = new ArrayList<>();
 		
 		//if we have identified all items of a set, we use the badge to keep track instead.
 		if (!Badges.isUnlocked(Badges.Badge.ALL_ITEMS_IDENTIFIED)) {
@@ -335,7 +335,7 @@ public enum Catalog {
 		
 		//general save/load
 		if (bundle.contains(CATALOG_ITEMS)) {
-			List<Class> seenClasses = new ArrayList<>();
+			List<Class<?>> seenClasses = new ArrayList<>();
 			if (bundle.contains(CATALOG_ITEMS)) {
 				seenClasses = Arrays.asList(bundle.getClassArray(CATALOG_ITEMS));
 			}

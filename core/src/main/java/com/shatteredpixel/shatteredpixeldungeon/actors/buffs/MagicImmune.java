@@ -46,7 +46,7 @@ public class MagicImmune extends FlavourBuff {
 	public boolean attachTo(Char target) {
 		if (super.attachTo(target)){
 			for (Buff b : target.buffs()){
-				for (Class immunity : immunities){
+				for (Class<?> immunity : immunities){
 					if (b.getClass().isAssignableFrom(immunity)){
 						b.detach();
 						break;

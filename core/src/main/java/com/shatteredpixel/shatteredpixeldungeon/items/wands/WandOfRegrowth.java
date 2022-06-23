@@ -452,7 +452,7 @@ public class WandOfRegrowth extends Wand {
 		}
 
 		@Override
-		public boolean isInvulnerable(Class effect) {
+		public boolean isInvulnerable(Class<?> effect) {
 			return true;
 		}
 

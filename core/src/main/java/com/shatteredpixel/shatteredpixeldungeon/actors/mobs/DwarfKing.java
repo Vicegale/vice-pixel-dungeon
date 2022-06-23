@@ -428,7 +428,7 @@ public class DwarfKing extends Mob {
 	}
 
 	@Override
-	public boolean isInvulnerable(Class effect) {
+	public boolean isInvulnerable(Class<?> effect) {
 		return phase == 2 && effect != KingDamager.class;
 	}
 
@@ -528,7 +528,7 @@ public class DwarfKing extends Mob {
 	}
 
 	@Override
-	public boolean isImmune(Class effect) {
+	public boolean isImmune(Class<?> effect) {
 		//immune to damage amplification from doomed in 2nd phase or later, but it can still be applied
 		if (phase > 1 && effect == Doom.class && buff(Doom.class) != null ){
 			return true;
@@ -570,7 +570,7 @@ public class DwarfKing extends Mob {
 
 		private int delay;
 		private int pos;
-		private Class<?extends Mob> summon;
+		private Class<? extends Mob> summon;
 
 		private Emitter particles;
 
@@ -680,7 +680,7 @@ public class DwarfKing extends Mob {
 			super.restoreFromBundle(bundle);
 			delay = bundle.getInt(DELAY);
 			pos = bundle.getInt(POS);
-			summon = bundle.getClass(SUMMON);
+			summon = (Class<? extends Mob>) bundle.getClass(SUMMON);
 		}
 	}
 

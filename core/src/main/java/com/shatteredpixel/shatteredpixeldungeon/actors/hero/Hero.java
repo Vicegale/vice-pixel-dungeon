@@ -1508,7 +1508,7 @@ public class Hero extends Char {
 		return true;
 	}
 	
-	public void earnExp( int exp, Class source ) {
+	public void earnExp( int exp, Class<?> source ) {
 		
 		this.exp += exp;
 		float percent = exp/(float)maxExp();
@@ -1898,7 +1898,7 @@ public class Hero extends Char {
 	}
 
 	@Override
-	public boolean isImmune(Class effect) {
+	public boolean isImmune(Class<?> effect) {
 		if (effect == Burning.class
 				&& belongings.armor() != null
 				&& belongings.armor().hasGlyph(Brimstone.class, this)){
@@ -1908,7 +1908,7 @@ public class Hero extends Char {
 	}
 
 	@Override
-	public boolean isInvulnerable(Class effect) {
+	public boolean isInvulnerable(Class<?> effect) {
 		return buff(AnkhInvulnerability.class) != null;
 	}
 

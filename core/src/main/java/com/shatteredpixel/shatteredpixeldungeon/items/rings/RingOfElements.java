@@ -57,7 +57,7 @@ public class RingOfElements extends Ring {
 		return new Resistance();
 	}
 
-	public static final HashSet<Class> RESISTS = new HashSet<>();
+	public static final HashSet<Class<?>> RESISTS = new HashSet<>();
 	static {
 		RESISTS.add( Burning.class );
 		RESISTS.add( Chill.class );
@@ -73,10 +73,10 @@ public class RingOfElements extends Ring {
 		RESISTS.addAll( AntiMagic.RESISTS );
 	}
 	
-	public static float resist( Char target, Class effect ){
+	public static float resist( Char target, Class<?> effect ){
 		if (getBuffedBonus(target, Resistance.class) == 0) return 1f;
 		
-		for (Class c : RESISTS){
+		for (Class<?> c : RESISTS){
 			if (c.isAssignableFrom(effect)){
 				return (float)Math.pow(0.825, getBuffedBonus(target, Resistance.class));
 			}

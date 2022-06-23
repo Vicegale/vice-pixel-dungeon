@@ -96,7 +96,7 @@ public class YogDzewa extends Mob {
 	private static final int MIN_SUMMON_CD = 10;
 	private static final int MAX_SUMMON_CD = 15;
 
-	private static Class getPairedFist(Class fist){
+	private static Class<?> getPairedFist(Class<?> fist){
 		if (fist == YogFist.BurningFist.class) return YogFist.SoiledFist.class;
 		if (fist == YogFist.SoiledFist.class) return YogFist.BurningFist.class;
 		if (fist == YogFist.RottingFist.class) return YogFist.RustedFist.class;
@@ -106,8 +106,8 @@ public class YogDzewa extends Mob {
 		return null;
 	}
 
-	private ArrayList<Class> fistSummons = new ArrayList<>();
-	private ArrayList<Class> challengeSummons = new ArrayList<>();
+	private ArrayList<Class<?>> fistSummons = new ArrayList<>();
+	private ArrayList<Class<?>> challengeSummons = new ArrayList<>();
 	{
 		Random.pushGenerator(Dungeon.seedCurDepth());
 			fistSummons.add(Random.Int(2) == 0 ? YogFist.BurningFist.class : YogFist.SoiledFist.class);
@@ -127,7 +127,7 @@ public class YogDzewa extends Mob {
 		Random.popGenerator();
 	}
 
-	private ArrayList<Class> regularSummons = new ArrayList<>();
+	private ArrayList<Class<?>> regularSummons = new ArrayList<>();
 	{
 		if (Dungeon.isChallenged(Challenges.STRONGER_BOSSES)){
 			for (int i = 0; i < 6; i++){
@@ -282,7 +282,7 @@ public class YogDzewa extends Mob {
 
 			while (summonCooldown <= 0){
 
-				Class<?extends Mob> cls = regularSummons.remove(0);
+				Class<? extends Mob> cls = (Class<? extends Mob>) regularSummons.remove(0);
 				Mob summon = Reflection.newInstance(cls);
 				regularSummons.add(cls);
 
@@ -333,7 +333,7 @@ public class YogDzewa extends Mob {
 	}
 
 	@Override
-	public boolean isInvulnerable(Class effect) {
+	public boolean isInvulnerable(Class<?> effect) {
 		return phase == 0 || findFist() != null;
 	}
 
@@ -534,9 +534,9 @@ public class YogDzewa extends Mob {
 		bundle.put(ABILITY_CD, abilityCooldown);
 		bundle.put(SUMMON_CD, summonCooldown);
 
-		bundle.put(FIST_SUMMONS, fistSummons.toArray(new Class[0]));
-		bundle.put(CHALLENGE_SUMMONS, challengeSummons.toArray(new Class[0]));
-		bundle.put(REGULAR_SUMMONS, regularSummons.toArray(new Class[0]));
+		bundle.put(FIST_SUMMONS, fistSummons.toArray(new Class<?>[0]));
+		bundle.put(CHALLENGE_SUMMONS, challengeSummons.toArray(new Class<?>[0]));
+		bundle.put(REGULAR_SUMMONS, regularSummons.toArray(new Class<?>[0]));
 
 		int[] bundleArr = new int[targetedCells.size()];
 		for (int i = 0; i < targetedCells.size(); i++){

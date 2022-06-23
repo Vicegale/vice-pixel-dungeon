@@ -471,7 +471,7 @@ public class DM300 extends Mob {
 	}
 
 	@Override
-	public boolean isInvulnerable(Class effect) {
+	public boolean isInvulnerable(Class<?> effect) {
 		if (supercharged && !invulnWarned){
 			invulnWarned = true;
 			GLog.w(Messages.get(this, "charging_hint"));
