@@ -317,6 +317,8 @@ public class Combo extends Buff implements ActionIndicator.Action {
 			case FURY:
 				dmgMulti = 0.6f;
 				break;
+			case PARRY:
+				break;
 		}
 
 		if (hero.attack(enemy, dmgMulti, dmgBonus, Char.INFINITE_ACCURACY)){
