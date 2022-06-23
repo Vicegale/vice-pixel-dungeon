@@ -78,7 +78,7 @@ public class HeroicLeap extends ArmorAbility {
 			}
 
 			armor.charge -= chargeUse( hero );
-			armor.updateQuickslot();
+			ClassArmor.updateQuickslot();
 
 			final int dest = cell;
 			hero.busy();

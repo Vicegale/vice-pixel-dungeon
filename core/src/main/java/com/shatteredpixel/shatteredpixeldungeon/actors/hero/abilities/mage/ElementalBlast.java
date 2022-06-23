@@ -403,7 +403,7 @@ public class ElementalBlast extends ArmorAbility {
 		hero.busy();
 
 		armor.charge -= chargeUse(hero);
-		armor.updateQuickslot();
+		ClassArmor.updateQuickslot();
 
 		Sample.INSTANCE.play( Assets.Sounds.CHARGEUP );
 

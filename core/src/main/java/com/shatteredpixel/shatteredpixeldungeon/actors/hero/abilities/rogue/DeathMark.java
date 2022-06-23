@@ -85,7 +85,7 @@ public class DeathMark extends ArmorAbility {
 		}
 
 		armor.charge -= chargeUse( hero );
-		armor.updateQuickslot();
+		ClassArmor.updateQuickslot();
 		hero.sprite.zap(target);
 
 		hero.next();

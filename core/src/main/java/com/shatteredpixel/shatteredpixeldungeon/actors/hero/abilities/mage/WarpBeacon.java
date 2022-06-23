@@ -108,7 +108,7 @@ public class WarpBeacon extends ArmorAbility {
 						}
 
 						armor.charge -= chargeNeeded;
-						armor.updateQuickslot();
+						ClassArmor.updateQuickslot();
 
 						if (tracker.depth == Dungeon.depth){
 							Char existing = Actor.findChar(tracker.pos);

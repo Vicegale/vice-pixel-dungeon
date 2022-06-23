@@ -143,7 +143,7 @@ public class Ratmogrify extends ArmorAbility {
 		}
 
 		armor.charge -= chargeUse(hero);
-		armor.updateQuickslot();
+		ClassArmor.updateQuickslot();
 		Invisibility.dispel();
 		hero.spendAndNext(Actor.TICK);
 

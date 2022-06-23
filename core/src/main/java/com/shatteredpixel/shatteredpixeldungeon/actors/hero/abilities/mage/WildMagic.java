@@ -118,7 +118,7 @@ public class WildMagic extends ArmorAbility {
 		Buff.affect(hero, WildMagicTracker.class, 0f);
 
 		armor.charge -= chargeUse(hero);
-		armor.updateQuickslot();
+		ClassArmor.updateQuickslot();
 
 		zapWand(wands, hero, target);
 
