@@ -279,6 +279,7 @@ public class InterlevelScene extends PixelScene {
 							case RESET:
 								reset();
 								break;
+							default: break;
 						}
 						
 					} catch (Exception e) {

@@ -155,6 +155,7 @@ public class WndSettings extends WndTabbed {
 					case UNREVIEWED:
 						icon.hardlight(1.5f, 0.75f, 0f);
 						break;
+					default: break;
 				}
 			}
 
@@ -893,6 +894,7 @@ public class WndSettings extends WndTabbed {
 						case UNREVIEWED:
 							btn.textColor(0xBBBBBB);
 							break;
+						default: break;
 					}
 				}
 				lanBtns[i] = btn;

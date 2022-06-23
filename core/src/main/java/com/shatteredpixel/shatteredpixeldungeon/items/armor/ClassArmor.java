@@ -49,7 +49,6 @@ abstract public class ClassArmor extends Armor {
 		bones = false;
 	}
 
-	private int armorTier;
 
 	private Charger charger;
 	public float charge = 0;

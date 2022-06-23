@@ -91,6 +91,9 @@ public class Pasty extends Food {
 			case XMAS:
 				image = ItemSpriteSheet.CANDY_CANE;
 				break;
+			case EASTER:
+				//no Sprite
+				break;
 		}
 	}
 	
@@ -109,6 +112,9 @@ public class Pasty extends Food {
 			case XMAS:
 				Buff.affect( hero, Recharging.class, 2f ); //half of a charge
 				ScrollOfRecharging.charge( hero );
+				break;
+			case EASTER:
+				//no Sprite
 				break;
 		}
 	}

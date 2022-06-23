@@ -192,7 +192,7 @@ public class CloakOfShadows extends Artifact {
 		return super.upgrade();
 	}
 
-	private static final String STEALTHED = "stealthed";
+	//private static final String STEALTHED = "stealthed";
 	private static final String BUFF = "buff";
 
 	@Override

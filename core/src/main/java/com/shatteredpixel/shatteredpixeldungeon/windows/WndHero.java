@@ -206,9 +206,9 @@ public class WndHero extends WndTabbed {
 			statSlot( label, Integer.toString( value ) );
 		}
 		
-		public float height() {
-			return pos;
-		}
+		//public float height() {
+		//	return pos;
+		//}
 	}
 
 	public class TalentsTab extends Component {

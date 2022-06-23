@@ -34,8 +34,8 @@ public class WallBlockingTilemap extends Tilemap {
 
 	private static final int CLEARED        = -2;
 	private static final int BLOCK_NONE     = -1;
-	private static final int BLOCK_RIGHT    = 0;
-	private static final int BLOCK_LEFT     = 1;
+	//private static final int BLOCK_RIGHT    = 0;
+	//private static final int BLOCK_LEFT     = 1;
 	private static final int BLOCK_ALL      = 2;
 	private static final int BLOCK_BELOW    = 3;
 
@@ -197,9 +197,9 @@ public class WallBlockingTilemap extends Tilemap {
 		return DungeonTileSheet.wallStitcheable(Dungeon.level.map[cell]);
 	}
 
-	private boolean door(int cell) {
-		return DungeonTileSheet.doorTile(Dungeon.level.map[cell]);
-	}
+	//private boolean door(int cell) {
+	//	return DungeonTileSheet.doorTile(Dungeon.level.map[cell]);
+	//}
 	
 	public synchronized void updateArea(int cell, int radius){
 		int l = cell%mapWidth - radius;

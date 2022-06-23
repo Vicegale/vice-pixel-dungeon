@@ -280,6 +280,7 @@ public abstract class RegularPainter extends Painter {
 					case CRYSTAL:
 						l.map[door] = Terrain.CRYSTAL_DOOR;
 						break;
+					default: break;
 				}
 			}
 		}

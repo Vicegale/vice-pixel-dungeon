@@ -164,8 +164,8 @@ public class GameScene extends PixelScene {
 	private Group levelVisuals;
 	private Group customWalls;
 	private Group ripples;
-	private Group plants;
-	private Group traps;
+	//private Group plants;
+	//private Group traps;
 	private Group heaps;
 	private Group mobs;
 	private Group floorEmitters;
@@ -428,6 +428,8 @@ public class GameScene extends PixelScene {
 					Badges.validateNoKilling();
 				}
 				break;
+			default:
+				break;
 		}
 
 		ArrayList<Item> dropped = Dungeon.droppedItems.get( Dungeon.depth );
@@ -554,6 +556,7 @@ public class GameScene extends PixelScene {
 				case LARGE:     GLog.w(Messages.get(this, "large"));    break;
 				case TRAPS:     GLog.w(Messages.get(this, "traps"));    break;
 				case SECRETS:   GLog.w(Messages.get(this, "secrets"));  break;
+				default: break;
 			}
 
 			for (Mob mob : Dungeon.level.mobs) {
@@ -1089,8 +1092,8 @@ public class GameScene extends PixelScene {
 				for (Gizmo g : scene.members){
 					if (g instanceof Window) offsetToInherit = ((Window) g).getOffset();
 				}
-				if (scene.lastOffset != null && offsetToInherit == null) {
-					offsetToInherit = scene.lastOffset;
+				if (GameScene.lastOffset != null && offsetToInherit == null) {
+					offsetToInherit = GameScene.lastOffset;
 				}
 				if (offsetToInherit != null) {
 					wnd.offset(offsetToInherit);

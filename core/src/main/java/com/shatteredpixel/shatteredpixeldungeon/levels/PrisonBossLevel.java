@@ -516,6 +516,9 @@ public class PrisonBossLevel extends Level {
 					}
 				});
 				break;
+			case WON:
+				//no case
+				break;
 		}
 	}
 	
@@ -537,6 +540,9 @@ public class PrisonBossLevel extends Level {
 					if (cellToPoint(ch.pos).y <= startHallway.top+1){
 						progress();
 					}
+					break;
+				default:
+					//no case
 					break;
 			}
 		}
