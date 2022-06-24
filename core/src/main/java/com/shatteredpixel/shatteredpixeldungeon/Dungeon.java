@@ -53,6 +53,7 @@ import com.shatteredpixel.shatteredpixeldungeon.levels.DeadEndLevel;
 import com.shatteredpixel.shatteredpixeldungeon.levels.HallsLevel;
 import com.shatteredpixel.shatteredpixeldungeon.levels.LastLevel;
 import com.shatteredpixel.shatteredpixeldungeon.levels.Level;
+import com.shatteredpixel.shatteredpixeldungeon.levels.OpenLevel;
 import com.shatteredpixel.shatteredpixeldungeon.levels.CavesBossLevel;
 import com.shatteredpixel.shatteredpixeldungeon.levels.CityBossLevel;
 import com.shatteredpixel.shatteredpixeldungeon.levels.HallsBossLevel;
@@ -249,6 +250,8 @@ public class Dungeon {
 		Level level;
 		switch (depth) {
 		case 1:
+			level = new OpenLevel();
+			break;
 		case 2:
 		case 3:
 		case 4:

@@ -28,6 +28,7 @@ import com.shatteredpixel.shatteredpixeldungeon.actors.mobs.Mob;
 
 public class DeadEndLevel extends Level {
 
+	//Inner size (excluding outer walls)
 	private static final int SIZE = 5;
 	
 	{
@@ -47,7 +48,7 @@ public class DeadEndLevel extends Level {
 	
 	@Override
 	protected boolean build() {
-		
+		//map size (including outer walls)
 		setSize(7, 7);
 		
 		for (int i=2; i < SIZE; i++) {
