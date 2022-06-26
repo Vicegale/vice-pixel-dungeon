@@ -3,12 +3,11 @@ package com.shatteredpixel.shatteredpixeldungeon.levels;
 import com.shatteredpixel.shatteredpixeldungeon.Assets;
 import com.shatteredpixel.shatteredpixeldungeon.Dungeon;
 import com.shatteredpixel.shatteredpixeldungeon.actors.mobs.Mob;
-import com.shatteredpixel.shatteredpixeldungeon.levels.painters.Painter;
 import com.watabou.utils.Random;
 
 public class OpenLevel extends Level {
 
-    private static final int SIZE = 100;
+    private static final int SIZE = 1000;
     @Override
 	public String tilesTex() {
 		return Assets.Environment.TILES_CAVES;
