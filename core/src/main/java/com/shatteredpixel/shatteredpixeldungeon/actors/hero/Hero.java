@@ -162,7 +162,7 @@ public class Hero extends Char {
 	
 	public static final int MAX_LEVEL = 30;
 
-	public static final int STARTING_STR = 10;
+	public static final int STARTING_STR = 30;
 	
 	private static final float TIME_TO_REST		    = 1f;
 	private static final float TIME_TO_SEARCH	    = 2f;
@@ -206,7 +206,7 @@ public class Hero extends Char {
 	public Hero() {
 		super();
 
-		HP = HT = 20;
+		HP = HT = 10000;
 		STR = STARTING_STR;
 		
 		belongings = new Belongings( this );

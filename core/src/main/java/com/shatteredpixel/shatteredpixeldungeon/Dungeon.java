@@ -250,8 +250,6 @@ public class Dungeon {
 		Level level;
 		switch (depth) {
 		case 1:
-			level = new OpenLevel();
-			break;
 		case 2:
 		case 3:
 		case 4:

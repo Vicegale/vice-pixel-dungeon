@@ -7,7 +7,7 @@ import com.watabou.utils.Random;
 
 public class OpenLevel extends Level {
 
-    private static final int SIZE = 1000;
+    private static final int SIZE = 100;
     @Override
 	public String tilesTex() {
 		return Assets.Environment.TILES_CAVES;
@@ -38,10 +38,21 @@ public class OpenLevel extends Level {
         }
 
 
-        entrance = SIZE + 1; //top left corner
+        int x = Random.Int(1, width()-1);
+        int y = Random.Int(1, height()-1);
+        entrance = y * width() + x;
 		map[entrance] = Terrain.ENTRANCE;
+        
 		
-		exit = 0;
+        for(int i = 0; i < Random.Int(1, 3); i++)
+        {
+            int exitX = Random.Int(1, width()-1);
+            int exitY = Random.Int(1, height()-1);
+
+            exit = exitY * width() + exitX;
+            map[exit] = Terrain.EXIT;
+        }
+
         return true;
     }
 

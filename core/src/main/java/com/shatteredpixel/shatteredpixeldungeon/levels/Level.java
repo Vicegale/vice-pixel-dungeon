@@ -119,6 +119,7 @@ public abstract class Level implements Bundlable {
 	public int version;
 	
 	public int[] map;
+	public HashMap<Integer, Integer> transitions;
 	public boolean[] visited;
 	public boolean[] mapped;
 	public boolean[] discoverable;
